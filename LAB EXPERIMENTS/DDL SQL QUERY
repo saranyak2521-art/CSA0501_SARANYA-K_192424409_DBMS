@@ -1,0 +1,101 @@
+-- ============================================================
+-- FLIGHT TICKET BOOKING SYSTEM - DDL LAB
+-- (CREATE, ALTER, DROP, RENAME, TRUNCATE)
+-- ============================================================
+
+-- STEP 1: Create and select database
+CREATE DATABASE flight_booking_system;
+USE flight_booking_system;
+
+
+-- ============================================================
+-- 1) Create table PASSENGER
+-- ============================================================
+CREATE TABLE PASSENGER
+(
+    PassID   INT(3),
+    PassName VARCHAR(15),
+    Gender   CHAR(1),
+    DOB      DATE,
+    MobileNo BIGINT(10),
+    City     VARCHAR(15)
+);
+
+DESC PASSENGER;
+
+
+-- ============================================================
+-- 2) Create table FLIGHT
+-- ============================================================
+CREATE TABLE FLIGHT
+(
+    FlightNo    VARCHAR(4),
+    FlightName  VARCHAR(15),
+    Origin      VARCHAR(15),
+    Destination VARCHAR(15),
+    DepDate     DATE,
+    ArrDate     DATE
+);
+
+DESC FLIGHT;
+
+
+-- ============================================================
+-- 3) Create table AIRPORT
+-- ============================================================
+CREATE TABLE AIRPORT
+(
+    AirportCode VARCHAR(4),
+    AirportName VARCHAR(15),
+    AirportHead VARCHAR(4)
+);
+
+DESC AIRPORT;
+
+
+-- ============================================================
+-- 4) Create table BOOKING
+-- ============================================================
+CREATE TABLE BOOKING
+(
+    BookingNo   VARCHAR(3),
+    BookingDesc VARCHAR(14),
+    SeatType    CHAR(1),
+    ClassNo     CHAR(1),
+    GateNo      VARCHAR(4),
+    FlightNo    VARCHAR(4)
+);
+
+DESC BOOKING;
+
+
+-- ============================================================
+-- 5) Modify FLIGHT table - add column AirlineName VARCHAR(10)
+-- ============================================================
+ALTER TABLE FLIGHT
+ADD AirlineName VARCHAR(10);
+
+DESC FLIGHT;
+
+
+-- ============================================================
+-- BONUS: Remaining DDL commands for practice
+-- (Comment/uncomment as needed - these modify/remove structures)
+-- ============================================================
+
+-- Drop a column from BOOKING
+ALTER TABLE BOOKING
+DROP COLUMN GateNo;
+
+-- Rename the PASSENGER table
+RENAME TABLE PASSENGER TO PASSENGER_INFO;
+
+-- Remove all rows from BOOKING but keep structure
+TRUNCATE TABLE BOOKING;
+
+-- Drop the AIRPORT table entirely
+DROP TABLE AIRPORT;
+
+-- ============================================================
+-- END OF SCRIPT
+-- ============================================================
